@@ -57,6 +57,25 @@ A full-stack AI support agent application built with Node.js, Express, Prisma, S
 4.  **Access App**:
     Open `http://localhost:5173` (or the port shown in your terminal).
 
+## Deployment (Render)
+
+The project includes a `render.yaml` blueprint for automatic deployment on Render.
+
+1.  **Push to GitHub**: Ensure your code is in a generic public/private repository.
+2.  **Create New Blueprint**:
+    *   Go to dashboard.render.com/blueprints
+    *   Connect your repository.
+    *   Give it a name (e.g., `spur-chat-agent`).
+    *   Click "Apply".
+3.  **Environment Variables**:
+    *   Render will prompt you for `OPENAI_API_KEY` (and `DATABASE_URL` if you modified `render.yaml`, otherwise it uses SQLite).
+    *   **Important**: Since we are using SQLite in this demo (`dev.db`), the database will reset on every deployment/restart unless you use a persistent disk or an external Postgres database (recommended for real production).
+4.  **Access**:
+    *   Once deployed, Render will provide a URL (e.g., `https://spur-chat-agent.onrender.com`).
+
+**Note on Database**:
+For a permanent database, use a managed provider like Neon or Supabase, and set `DATABASE_URL` to the connection string provided by them.
+
 ## Architecture Overview
 
 ### Backend (`server`)

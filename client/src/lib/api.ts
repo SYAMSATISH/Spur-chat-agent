@@ -1,6 +1,6 @@
 import type { ChatResponse, Message } from './types';
 
-const API_URL = 'http://localhost:3000/chat';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/chat';
 
 export async function sendMessage(message: string, sessionId?: string): Promise<ChatResponse> {
     const res = await fetch(`${API_URL}/message`, {
